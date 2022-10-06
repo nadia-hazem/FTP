@@ -4,7 +4,7 @@
 #install proftpd et client filezilla
 #####################################
 
-sudo apt install proftpd*; sudo apt install filezilla
+apt install proftpd*; apt install filezilla
 
 #################################################
 #setaf couleur police, setab couleur arrière plan
@@ -299,8 +299,11 @@ TLSRequired                             on
 #génération de la clé et du certificat
 #######################################
 
-sudo mkdir ssl
-sudo openssl req -new -x509 -days 365 -nodes -out /etc/proftpd/ssl/proftpd.cert.pem -keyout /etc/proftpd/ssl/proftpd.key.pem 
+mkdir ssl
+openssl req -new -x509 -days 365 -nodes -out /etc/proftpd/ssl/proftpd.cert.pem -keyout /etc/proftpd/ssl/proftpd.key.pem 
+ 
+chmod 0600 /etc/proftpd/ssl/proftpd.key.pem
+chmod 0640 /etc/proftpd/ssl/proftpd.cert.pem
  
 ########################
 # modif fichier modules
@@ -432,5 +435,5 @@ LoadModule mod_ifsession.c' > /etc/proftpd/modules.conf
 #restart le serveur pour prendre en compte les modif
 #####################################################
 
-sudo systemctl restart proftpd
+systemctl restart proftpd
 
