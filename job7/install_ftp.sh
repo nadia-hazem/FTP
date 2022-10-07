@@ -10,9 +10,12 @@ apt install proftpd*; apt install filezilla
 #setaf couleur police, setab couleur arrière plan
 #################################################
 
-echo -e "\e[5m$(tput setaf 7) $(tput setab 1)Veuillez exécuter ce script en mode Root. Attention ! Ce message s'autodétruira dans 5 secondes. :D \e[0m"
+echo -e "$(tput setaf 7) $(tput setab 1) $(tput bold)VEUILLEZ EXECUTER CE SCRIPT EN MODE ROOT.\e[0m"
+#délai du message#
+sleep 5
 
-############délai du message###############
+echo -e "\e[5m$(tput setaf 7) $(tput setab 1)Attention ! Ce message s'autodétruira dans 5 secondes. :D mais le script va démarrer. Patience \e[0m"
+#délai du message#
 sleep 5
 
 cd /etc/proftpd
@@ -436,4 +439,4 @@ LoadModule mod_ifsession.c' > /etc/proftpd/modules.conf
 #####################################################
 
 systemctl restart proftpd
-
+echo -e "$(tput setaf 7) $(tput setab 4) $(tput bold)VOILA LE SCRIPT EST FINI, ENJOY !"
